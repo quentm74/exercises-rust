@@ -1,3 +1,8 @@
+// -------------------------------------------------------------------------
+// PROBLEM STATEMENT
+// write a function that returns the third minimal value
+// -------------------------------------------------------------------------
+
 use std::collections::HashSet;
 use std::error::Error;
 use std::fmt;

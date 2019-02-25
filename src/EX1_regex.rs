@@ -1,3 +1,9 @@
+// -------------------------------------------------------------------------
+// PROBLEM STATEMENT
+// write a simple "match regex" function where the pattern could be compose
+// of a-z / . / *
+// -------------------------------------------------------------------------
+
 fn regex(string: &str, pattern: &str) -> Result<bool, ()> {
     return check_regex(&string.chars().collect(), &pattern.chars().collect(), 0, 0);
 }
