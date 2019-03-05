@@ -6,7 +6,7 @@
 use std::error::Error;
 use std::fmt;
 
-pub fn quicksort(array: &mut Vec<i32>) -> Result<(), QuicksortErrors> {
+fn quicksort(array: &mut Vec<i32>) -> Result<(), QuicksortErrors> {
     let len = array.len();
     quicksort_r(array, 0, len - 1)
 }
@@ -87,7 +87,7 @@ fn swap(array: &mut Vec<i32>, i: usize, j: usize) -> Result<(), QuicksortErrors>
 // -------------------------------------------------------------------------
 
 #[derive(Debug, PartialEq)]
-pub enum QuicksortErrors {
+enum QuicksortErrors {
     IndexOutOfBoundError,
 }
 
@@ -118,7 +118,7 @@ mod tests {
     fn test_quicksort_1() {
         let mut v = vec![0, 1, 3, 4, 2];
         match quicksort(&mut v) {
-            Ok(tmp) => assert_eq!(v, vec![0, 1, 2, 3, 4]),
+            Ok(_) => assert_eq!(v, vec![0, 1, 2, 3, 4]),
             Err(_) => assert!(false),
         }
     }
@@ -127,7 +127,7 @@ mod tests {
     fn test_quicksort_2() {
         let mut v = vec![0, 1, 6, 7, 5, 3, 8, 4, 9, 2];
         match quicksort(&mut v) {
-            Ok(tmp) => assert_eq!(v, vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9]),
+            Ok(_) => assert_eq!(v, vec![0, 1, 2, 3, 4, 5, 6, 7, 8, 9]),
             Err(_) => assert!(false),
         }
     }
@@ -163,7 +163,9 @@ mod tests {
     #[test]
     fn test_swap_1() {
         let mut v = vec![0, 1, 3, 4, 2];
-        swap(&mut v, 1, 2);
-        assert_eq!(v, vec![0, 3, 1, 4, 2]);
+        match swap(&mut v, 1, 2) {
+            Ok(_) => assert_eq!(v, vec![0, 3, 1, 4, 2]),
+            Err(_) => assert!(false),
+        }
     }
 }
