@@ -113,7 +113,7 @@ mod tests {
     #[test]
     fn test_increment_array_2() {
         match increment_array(&vec![], 4) {
-            Some(v) => assert!(false),
+            Some(_) => assert!(false),
             None => assert!(true),
         }
     }
@@ -121,7 +121,7 @@ mod tests {
     #[test]
     fn test_increment_array_3() {
         match increment_array(&vec![3, 4], 4) {
-            Some(v) => assert!(false),
+            Some(_) => assert!(false),
             None => assert!(true),
         }
     }

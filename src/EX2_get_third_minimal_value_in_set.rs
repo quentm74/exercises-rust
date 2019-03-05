@@ -75,14 +75,14 @@ mod tests {
     fn test_third_minimal_value_1() {
         match get_third_minimal_value([1, 3, 2, 6, 8].iter().cloned().collect()) {
             Ok(v) => assert_eq!(v, 3),
-            Err(e) => assert!(false),
+            Err(_) => assert!(false),
         }
     }
 
     #[test]
     fn test_third_minimal_value_2() {
         match get_third_minimal_value([1, 3].iter().cloned().collect()) {
-            Ok(v) => assert!(false),
+            Ok(_) => assert!(false),
             Err(e) => assert_eq!(e, GetThirdMinimalValueErrors::SetMustContainAtLeastThreeValuesError),
         }
     }
